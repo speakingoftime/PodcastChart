@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Podcast Chart</title>
+    <link href="/img/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    <!-- Body container -->
+    <div id="content">
+      <!-- Navigation -->
+      <div id="nav">
+        <!-- Logo -->
+        <a href="#">
+          <img src="/img/logo.svg" alt="Podcast Chart logo" id="logo"/>
+        </a>
+        <!-- Links -->
+        <div id="navbar">
+          <p>Browse charts:</p>
+          <ul>
+            <li><a id="linkApple" href="#apple">Apple Podcasts</a></li>
+            <li><a id="linkSpotify" href="#spotify">Spotify</a></li>
+            <li><a id="linkStitcher" href="#stitcher">Stitcher</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Content -->
+      <div id="content-body">
+        <!-- Categories nav -->
+        <div id="genre-menu">
+          <h1>Top 10 shows on <span id="platform-name"></span></h1>
+          <input id="genres-btn" type="button" value="all categories ▼"/>
+          <div id="genre-menu-content">
+            <!-- Use AJAX to drop content here -->
+          </div>
+        </div>
+        <div id="podcast-container">
+          <!-- Top podcast goes here -->
+          <div id="topshow">
+            <!-- Use AJAX to drop content here -->
+          </div>
+          
+          <!-- Top 2 to 10 podcasts go here -->
+          <div id="othershows">
+            <!-- Use AJAX to drop content here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div id="footer">
+        <p id="copyright">©2022 Tracy Ly</p>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="js/client.js"></script>
+  </body>
+</html>

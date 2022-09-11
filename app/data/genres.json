@@ -1,0 +1,12 @@
+{
+  "News": ["Daily news", "Politics", "Business news", "Tech news", "Sports news", "News commentary", "Entertainment news"],
+  "Comedy": ["Improv", "Comedy interviews", "Stand-up comedy"],
+  "Society & culture": ["Documentary", "Philosophy", "Places & travel", "Personal journals", "Relationships"],
+  "Health & fitness": ["Alternative health", "Fitness", "Nutrition", "Sexuality", "Mental health", "Medicine"],
+  "Business": ["Careers", "Investing", "Management", "Marketing", "Entrepreneurship", "Non-profit"],
+  "True crime": ["New", "Canadian"],
+  "Education": ["Language learning", "How to", "Self-improvement", "Courses"],
+  "Arts": ["Design", "Fashion & beauty", "Food","Books", "Performing arts", "Visual arts"],
+  "Science": ["Natural sciences", "Social sciences", "Mathematics", "Astronomy", "Chemistry", "Life sciences", "Physics"],
+  "Kids & family": ["Education for kids", "Stories for kids", "Parenting", "Pets & animals"]
+}

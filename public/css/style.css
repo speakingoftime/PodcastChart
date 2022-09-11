@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+img {max-width: 100%;}
+
+#logo {
+  height: 48px;
+  width: auto;
+  background-color: black;
+}
+#logo:hover {
+  animation: logoColour 0.2s ease-out;
+  background-color: #7364D2;
+  filter: drop-shadow(8px 10px 0 black);
+}
+@keyframes logoColour {
+  0% {
+    background-color: black;
+    filter: none;
+  }
+  100% {
+    background-color: #7364D2;
+    filter: drop-shadow(8px 10px 0 black);
+  }
+}
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 2vw 3vw;
+  font-size: 1.25em;
+}
+#navbar, #navbar ul {
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#navbar ul a {
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  transition: color 0.2s ease-out;
+}
+#navbar ul a:hover, 
+#navbar ul a:active, 
+#navbar ul a:focus {
+  color: #7364D2;
+}
+
+#content-body {
+  padding: 2vw 3vw;
+  background-color: black;
+  color: white;
+}
+
+/* Podcast categories/genres menu */
+#genre-menu {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  justify-items: start;
+  gap: 0 2vw;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+#genre-menu h1 {
+  font-size: 3em;
+  grid-column: 1 / span 1;
+}
+#genres-btn {
+  grid-column: 2 / span 1;
+  height: 2.5em;
+  padding: 0.25em 0.5em;
+  border: none;
+  outline: none;
+  font: inherit;
+  font-size: 1.25em;
+  font-weight: 700;
+  color: rgb(196, 196, 196);
+  background-color: #181818;
+  filter: none;
+}
+#genres-btn:hover {
+  animation: genreColour 0.2s ease-out;
+  background-color: #4d4d4d;
+  filter: drop-shadow(8px 8px 0 rgb(196, 196, 196));
+}
+@keyframes genreColour {
+  from {
+    color: rgb(196, 196, 196);
+    background-color: #181818;
+    filter: none;
+  }
+  to {
+    background-color: #4d4d4d;
+    filter: drop-shadow(8px 8px 0 rgb(196, 196, 196));
+  }
+}
+
+#genre-menu-content {
+  justify-self: stretch;
+  grid-column: 1 / span 2;
+  background-color: rgb(196, 196, 196);
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+/* Gets added through ajax */
+/* General styles for all ul, li, a in the genre-menu-content */
+#genre-menu-content ul {
+  margin: 0;
+  padding: 0;
+}
+#genre-menu-content li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#genre-menu-content a {
+  color: black;
+  text-decoration: none;
+  transition: font-weight 0.2s ease-out;
+}
+#genre-menu-content a:hover,
+#genre-menu-content a:focus,
+#genre-menu-content a:active {
+  font-weight: 800;
+}
+/* Specific styles in genre-menu-content lists */
+#genre-menu-content > ul {
+  display: grid;
+  gap: 2vw 1vw;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 3%;
+}
+/* Text styles for main category name */
+#genre-menu-content > ul > li > a {
+  font-size: 1.2em;
+  font-weight: 800;
+  color: black;
+  transition: font-weight 0.2s ease-out;
+}
+
+#platform-name {
+  font-weight: 200;
+  white-space: nowrap;
+}
+
+/* Grid separating top show & other shows */
+#podcast-container {
+  display: grid;
+  gap: 0 2vw;
+  grid-template-columns: 70% auto;
+  padding-bottom: 2vw;
+}
+#topshow, #othershows {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto;
+  /* gap: 2vw 0; */
+}
+#topshow {
+  height: 30vw;
+  padding: 2vw;
+  background-color: #7364D2;
+}
+#othershows {
+  height: 34vw;
+  background-color: #181818;
+  box-shadow: inset 6px 6px 24px rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+}
+/* Some loading animations */
+.show {
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+/* This is the podcast img, info */
+.show-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#topshow .show {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 2vw;
+}
+#topshow img {
+  width: 30vw;
+}
+#othershows .show {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  gap: 0 1vw;
+  padding: 1vw;
+  transition: background-color 0.2s ease-out;
+}
+#othershows .show:hover {
+  background-color: #7364D2;
+}
+
+/* Podcast text */
+.title {
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0.5em;
+}
+.author {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-top: 1em;
+}
+.genre {
+  font-size: 0.85em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 1em;
+}
+.year {
+  letter-spacing: 0.1em;
+  margin-top: 1em;
+}
+.summary {
+  font-weight: 300;
+  line-height: 1.5em;
+  margin-top: 1em;
+  max-height: 15vw;
+  overflow-y: auto;
+}
+.website {
+  font-weight: 700;
+  margin-top: 1em;
+}
+.website a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s ease-out;
+}
+.website a:hover,
+.website a:active,
+.website a:focus {
+  color: black;
+}
+#othershows .title {
+  font-size: 1.25em;
+}
+#othershows .author {
+  font-size: 0.85em;
+  margin-top: 0.5em;
+}
+#othershows .genre, 
+#othershows .year,
+#othershows .website {
+  font-size: 0.75em;
+  margin-top: 0.5em;
+}
+
+/* Podcast ranking label */
+.rank {
+  position: absolute;
+  padding: 0.3em 0.75em;
+  /* background-color: #7364D2;
+  color: white; */
+  background-color: white;
+  color: #7364D2;
+  font-weight: 800;
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.25));
+  opacity: 100%;
+  transition: opacity 0.2s;
+}
+.rank p {
+  padding: 0;
+  margin: auto 0;
+}
+.rank:hover {
+  opacity: 0%;
+}
+/* When hovering over the podcast image, change the rank label's opacity */
+.show-img:hover > .rank {
+  opacity: 0%;
+}
+#topshow .rank {
+  font-size: 2em;
+  background-color: white;
+  color: #7364D2;
+  margin-top: -2vw;
+  margin-left: -2vw;
+}
+#othershows .rank {
+  font-size: 1.25em;
+  margin-top: -1vw;
+  margin-left: -1vw;
+}
+
+/* Footer stuff */
+#footer {
+  padding: 0.5vw 3vw;
+}
+#copyright {
+  font-size: 0.8em;
+  color: #4d4d4d;
+}
+
+
+
+/************ Media queries ************/
+
+@media only screen and (max-width: 1600px) {
+  #logo {
+    height: 40px;
+  }
+  #genre-menu-content a {
+    font-size: 0.85em;
+  }
+  #topshow .rank {
+    font-size: 1.75em;
+  }
+  #othershows .rank {
+    font-size: 1em;
+  }
+  #topshow .title {
+    font-size: 1.6em;
+  }
+  #topshow .author {
+    font-size: 1em;
+  }
+  .year, .summary {
+    font-size: 0.9em;
+  }
+  #othershows .title {
+    font-size: 1em;
+    margin-top: 0.25em;
+  }
+  #othershows .author,
+  #othershows .website {
+    font-size: 0.75em;
+  }
+  #othershows .genre {
+    font-size: 0.65em;
+  }
+}
+
+
+@media only screen and (max-width: 1280px) {
+  /* Podcast layouts */
+  #podcast-container {
+    grid-template-columns: auto;
+  }
+  #topshow, #othershows {
+    height: auto;
+    overflow: hidden;
+  }
+  #othershows {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6vw 4vw;
+    padding: 4vw 0;
+    background-color: transparent;
+  }
+  #othershows .show {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 2vw;
+    background-color: #181818;
+  }
+  .show-details {
+    padding-top: 1vw;
+  }
+  /* Podcast text */
+  #topshow .title {
+    font-size: 2em;
+  }
+  .summary {
+    max-height: 100%;
+    overflow-y: hidden;
+  }
+  #othershows .rank {
+    font-size: 1.25em;
+    margin-top: -2vw;
+    margin-left: -2vw;
+  }
+}
+
+
+@media only screen and (max-width: 960px) {
+  #logo {
+    height: 30px;
+  }
+  #nav {
+    font-size: 1.15em;
+  }
+  #content-body h1 {
+    font-size: 2.2em;
+  }
+  #genres-btn {
+    font-size: 1em;
+    height: 2em;
+  }
+  #genre-menu-content > ul {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 4vw 2vw;
+  }
+  /* Podcast layout */
+  #topshow img {
+    width: 40vw;
+  }
+  #othershows {
+    gap: 6vw 3vw;
+    grid-template-columns: 1fr 1fr;
+  }
+  /* Podcast text */
+  #topshow .show li {
+    margin-top: 0.4em;
+  }
+  #topshow .title {
+    font-size: 1.5em;
+  }
+  .summary {
+    padding: 1em 0;
+  }
+  #topshow .website {
+    padding-bottom: 1em;
+  }
+  #othershows .title {
+    font-size: 1.15rem;
+  }
+  
+}
+
+
+@media only screen and (max-width: 740px) {
+  #logo {
+    height: 40px;
+  }
+  #nav {
+    flex-direction: column;
+    padding: 5% 0 2% 0;
+  }
+  #navbar, #navbar ul {
+    flex-direction: column;
+  }
+  #navbar {
+    gap: 0;
+  }
+  #navbar p {
+    margin-bottom: 0;
+  }
+  #content-body h1 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 4%;
+  }
+  /* Podcast categories menu */
+  #genre-menu {
+    justify-items: center;
+    gap: 0;
+  }
+  #genres-btn {
+    margin-bottom: 5%;
+  }
+  #genre-menu h1 {
+    grid-column: 1 / span 2;
+    margin-bottom: 2%;
+  }
+  #genre-menu-content > ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  /* Podcast layout */
+  #topshow .show {
+    grid-template-columns: auto;
+  }
+  #topshow img {
+    width: 100%;
+  }
+  .show-details {
+    padding: 1vw;
+  }
+  /* Podcast text */
+  #topshow .title {
+    font-size: 1.75em;
+  }
+  /* Footer */
+  #copyright {
+    text-align: center;
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+  #nav {
+    padding: 8% 0 5% 0;
+  }
+  #genres-btn {
+    margin-bottom: 10%;
+  }
+  #genre-menu-content > ul {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* #content-body {
+    padding: 0;
+  } */
+  /* Podcast layout */
+  #topshow .show {
+    padding-bottom: 2%;
+  }
+  #othershows {
+    grid-template-columns: auto;
+    gap: 4vw 0;
+  }
+  #othershows .show {
+    grid-template-columns: 40% 1fr;
+    gap: 0 2vw;
+  }
+}
